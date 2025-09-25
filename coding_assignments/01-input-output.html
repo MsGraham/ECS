@@ -10,30 +10,16 @@
 </style>
 <body>
 
-<script>
-
-// You can put <script> tags anywhere you want in your HTML file to add javascript.
-
-// This line of code is helping set up the dropdown menu to do things when you click on it.
-document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
-
-// It will be run whenever the website loads in your browser.
-
-</script>
-
 
 <h1>Coding Assignment #1: Input and Output</h1>
 
 
-<h2>HTML output</h2>
+<h2>HTML output types</h2>
 
-<p>These buttons demonstrate different kinds of HTML output.</p>
-
-<br>
-
-<p>This button generates an alert: </p>
+<p>This button generates an alert output: </p>
 <button onclick="onAlertButtonClick()">Show Alert</button>
 
+<!-- Use the <script> tags to add javascript to your HTML file. -->
 <script>
 
 // This javascript code is inside a function, so it will only run when the function gets called.
@@ -45,13 +31,14 @@ function onAlertButtonClick() {
 </script>
 
 
-<p>This button adds content to the HTML page:</p>
+<p>This button outputs content to the HTML page:</p>
 
 <button onclick="onAddContentButtonClick()">Change the HTML page</button>
 
 <!-- This paragraph is a placeholder for the new HTML content we're going to add. -->
 <p id="output"></p>
 
+<!-- This javascript will reference the "output" paragraph element, so it needs to go underneath it or the code won't work. -->
 <script>
 
 // This function will run when we click on the "Change the HTML contents" button.
@@ -62,8 +49,9 @@ function onAddContentButtonClick() {
 </script>
 
 
-<!-- This button uses the "console.log" function to print output to a special place called the developer console. 
-  We will learn how to use it as a tool to figure out why our website code isn't working how we want. -->
+<p>This button uses the "console.log" function to print output to a special place called the developer console. 
+  We will learn how to use it as a tool to figure out why our website code isn't working how we want. </p>
+
 <button onclick="onConsoleButtonClick()">Output to Console</button>
 
 <script>
@@ -74,6 +62,7 @@ function onConsoleButtonClick() {
 
 </script>
 
+<br><br>
 
 <h2>Textbox Input</h2>
 
@@ -96,7 +85,7 @@ function onTextInputButtonClick() {
 
 </script>
 
-
+<br><br>
 <h2>Dropdown Menu Input</h2>
 
 <select id="exampleDropdown" onclick="onDropdownOptionClick">
@@ -123,6 +112,11 @@ function onTextInputButtonClick() {
 </div>
 
 <script>
+
+// This line of code is helping set up the dropdown menu to do things when you click on it.
+// It will be run whenever the website loads in your browser.
+document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
+
 
 // This function will run when we click an item in the Fruits dropdown menu.
 // It makes different page elements show up or not, depending on what option we clicked.
