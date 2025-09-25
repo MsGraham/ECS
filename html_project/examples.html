@@ -1,0 +1,147 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!-- DO NOT BUILD YOUR WEBSITE IN THIS FILE -->
+<!-- YOUR WEBSITE BELONGS IN "myProject.html" !!! -->
+<!-- THIS FILE IS FOR REFERENCE ONLY !!! -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML examples</title>
+</head>
+<style>
+#apples, #bananas, #cranberries {
+  display: none;
+}
+</style>
+<body>
+
+
+<!-- This is a top-level heading (also called a heading level 1). Use it for the title of your website. -->
+<h1>Really Cool Website Title.</h1>
+
+<!-- This is a paragraph. Use it to add paragraphs of text to your website. -->
+ <p>Under your website title, you can have a paragraph to describe what your website does. This website is showing you how to use all the different HTML elements we talked about in class.</p>
+
+<!-- This is a line break tag. Use it to insert a blank line into your text.  (See https://www.w3schools.com/tags/tag_br.asp for more info)-->
+<br>
+
+ <!-- This is a heading level 2. Use it to title smaller sections of your website. -->
+<h2>HTML Links</h2>
+
+<!-- Use the <a> tag to create a link, like this example below. The "href" attribute is where you put the URL of the website you want the link to go to. -->
+<p>HTML links are defined with the <code> a </code> tag. You can use this link to see <a href="https://www.w3schools.com/html/html_examples.asp">more HTML examples</a>.</p>
+
+
+<!-- Use the <button> tag to make a button. You can add the "onclick" part later if you choose Javascript for your coding project. -->
+<h2>HTML button</h2>
+<p>You can use the <code> button</code> tag to include a button in your website.</p>
+<button onclick="onExampleButtonClick()">Click me</button>
+
+<p id="exampleButtonText"></p>
+
+<!-- You can create lists with the <ul> (unordered list) or the <ol> (ordered list) tags. Use the <li> (list item) tag to add items to your list. -->
+<h2>HTML lists</h2>
+<p>This is a regular bullet-point list.</p>
+<ul>
+  <li>Thing 1</li>
+  <li>Thing 2</li>
+  <li>Thing 3</li>
+</ul>
+
+<p>This is a numbered list.</p>
+<ol>
+  <li>Thing 1</li>
+  <li>Thing 2</li>
+  <li>Thing 3</li>
+</ol>
+
+<h2>HTML input types</h2>
+
+<p>Use an <code>input</code> element with <code>type="text"</code> to collect text input. </p>
+
+<label for="myNameInput">What is your name?</label>
+<input type="text" id="nameInputId" name="myNameInput"><br>
+<p id="aboutMeButtonText"></p>
+
+<button id="aboutMeButton" onclick="onAboutMeButtonClick()">Submit</button>
+
+
+<h2>Dropdown Menu (that does something when you click the options)</h2>
+
+<select id="exampleDropdown" onchange="onDropdownOptionClick" onclick="onDropdownOptionClick">
+  <option value="noFruitSelected">--Please choose a fruit--</option>
+  <option value="apples">Apples</option>
+  <option value="bananas">Bananas</option>
+  <option value="cranberries">Cranberries</option>
+
+</select>
+
+<div id="noFruitSelected">
+  <p>Select a fruit to see content here</p>
+</div>
+
+<div id="apples">
+  <p>Apples are Awesome</p>
+</div>
+
+<div id="bananas">
+  <p>Bananas are Better</p>
+</div>
+
+<div id="cranberries">
+  <p>Cranberries are Colorful</p>
+</div>
+
+<div>
+
+  <h2>HTML Images</h2>
+  <p>We used the <code> img </code> tag to include this picture of John and Mary Judge, who founded Judge Memorial Catholic High School.</p>
+  
+  <!-- Notice how there is a picture named "john_mary_judge.jpg" in our "html_project" folder. That's important. If you want to use a picture in your website, you need to put your picture in the "html_project" folder too. -->
+  <img src="john_mary_judge.jpg" alt="A black and white image of John and Mary Judge." width="300">
+  
+  <h2> Nested HTML Elements</h2>
+  
+  <p>You can stick HTML elements inside each other to make an element do more than one thing. For example, this picture of John and Mary Judge is also a link to the Judge Memorial school website:</p>
+  
+  <a href="https://www.judgememorial.org/our-history" target="_blank"><img src="john_mary_judge.jpg" alt="A black and white image of John and Mary Judge." width="300"></a>
+  
+  
+</div>
+
+
+
+</body>
+
+
+<!-- If you use Javascript code in your project, this is where it will go. -->
+<script>
+  
+  
+document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
+
+function onDropdownOptionClick(event) {
+  var optionId = event.target.value;
+
+  document.getElementById("noFruitSelected").style.display = "none";
+  document.getElementById("apples").style.display = "none";
+  document.getElementById("bananas").style.display = "none";
+  document.getElementById("cranberries").style.display = "none";
+
+  document.getElementById(optionId).style.display = "block";
+}
+
+function onExampleButtonClick() { 
+  document.getElementById("exampleButtonText").innerHTML = "Later in the class, you can learn how to use Javascript to make your button do things.";
+}
+
+
+function onAboutMeButtonClick() {
+    var name = document.getElementById("nameInputId").value;
+
+    document.getElementById("aboutMeButtonText").innerHTML = `Hello ${name}, it is very nice to meet you!`;
+
+
+}
+</script>
+</html>
