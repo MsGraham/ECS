@@ -10,8 +10,6 @@
 </style>
 <body>
 
-
-
 <script>
 
 // You can put <script> tags anywhere you want in your HTML file to add javascript.
@@ -41,7 +39,7 @@ document.getElementById("exampleDropdown").addEventListener("change", onDropdown
 // This javascript code is inside a function, so it will only run when the function gets called.
 // The onAlertButtonClick function is set up to be called when we click the "Show Alert" button.
 function onAlertButtonClick() {
-  alert("hi first period!");
+
 }
 
 </script>
@@ -49,7 +47,7 @@ function onAlertButtonClick() {
 
 <p>This button adds content to the HTML page:</p>
 
-<button onclick="onAddContentButtonClick()">Change the HTML contents</button>
+<button onclick="onAddContentButtonClick()">Change the HTML page</button>
 
 <!-- This paragraph is a placeholder for the new HTML content we're going to add. -->
 <p id="output"></p>
@@ -77,8 +75,6 @@ function onConsoleButtonClick() {
 </script>
 
 
-
-
 <h2>Textbox Input</h2>
 
 <p>Use an input element with type="text" to collect text input. </p>
@@ -93,7 +89,9 @@ function onConsoleButtonClick() {
 
 // This function will run when we click on the "Change the HTML contents" button.
 function onTextInputButtonClick() {
+  var name = document.getElementById("textInputId").value;
 
+  document.getElementById("textInputButtonParagraph").innerHTML = `Hello ${name}, it is very nice to meet you!`;
 }
 
 </script>
