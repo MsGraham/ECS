@@ -11,44 +11,77 @@
 <body>
 
 
-<h1>Coding Assignment #1: Input and Output</h1>
-
-<!-- Use the <button> tag to make a button. You can add the "onclick" part later if you choose Javascript for your coding project. -->
-<h2>HTML output</h2>
-<p>These buttons demonstrate different kinds of HTML output.</p>
 
 <script>
-  // Most of the time, you will put your code in a function that will get called when the user does something, like click a button.
 
-function onChangePageContentButtonClick() { 
-  document.getElementById("output").innerHTML = "ECS first period is awesome!";
-}
+// You can put <script> tags anywhere you want in your HTML file to add javascript.
+
+// This line of code is helping set up the dropdown menu to do things when you click on it.
+document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
+
+// It will be run whenever the website loads in your browser.
+
 </script>
 
-<button onclick="onChangePageContentButtonClick()">Change the HTML contents</button>
 
-<p id="output"></p>
+<h1>Coding Assignment #1: Input and Output</h1>
 
+
+<h2>HTML output</h2>
+
+<p>These buttons demonstrate different kinds of HTML output.</p>
+
+<br>
+
+<p>This button generates an alert: </p>
+<button onclick="onAlertButtonClick()">Show Alert</button>
 
 <script>
 
+// This javascript code is inside a function, so it will only run when the function gets called.
+// The onAlertButtonClick function is set up to be called when we click the "Show Alert" button.
 function onAlertButtonClick() {
   alert("hi first period!");
 }
+
 </script>
-<button onclick="onAlertButtonClick()">Show Alert</button>
 
-<p></p>
 
+<p>This button adds content to the HTML page:</p>
+
+<button onclick="onAddContentButtonClick()">Change the HTML contents</button>
+
+<!-- This paragraph is a placeholder for the new HTML content we're going to add. -->
+<p id="output"></p>
+
+<script>
+
+// This function will run when we click on the "Change the HTML contents" button.
+function onAddContentButtonClick() {
+
+}
+
+</script>
+
+
+<!-- This button uses the "console.log" function to print output to a special place called the developer console. 
+  We will learn how to use it as a tool to figure out why our website code isn't working how we want. -->
 <button onclick="onConsoleButtonClick()">Output to Console</button>
 
+<script>
+
+function onConsoleButtonClick() {
+
+}
+
+</script>
 
 
 
 
 <h2>Textbox Input</h2>
 
-<p>Use an <code>input</code> element with <code>type="text"</code> to collect text input. </p>
+<p>Use an input element with type="text" to collect text input. </p>
 
 <label for="textInputName">What is your name?</label>
 <input type="text" id="textInputId" name="textInputName"><br>
@@ -56,16 +89,23 @@ function onAlertButtonClick() {
 
 <button onclick="onTextInputButtonClick()">Submit</button>
 
+<script>
+
+// This function will run when we click on the "Change the HTML contents" button.
+function onTextInputButtonClick() {
+
+}
+
+</script>
 
 
-<h2>Dropdown Menu (that does something when you click the options)</h2>
+<h2>Dropdown Menu Input</h2>
 
 <select id="exampleDropdown" onclick="onDropdownOptionClick">
   <option value="noFruitSelected">--Please choose a fruit--</option>
   <option value="apples">Apples</option>
   <option value="bananas">Bananas</option>
   <option value="cranberries">Cranberries</option>
-
 </select>
 
 <div id="noFruitSelected">
@@ -84,43 +124,27 @@ function onAlertButtonClick() {
   <p>Cranberries are Colorful</p>
 </div>
 
-
-</body>
-
-
-<!-- If you use Javascript code in your project, this is where it will go. -->
 <script>
 
-
-
-// If you put your javascript code outside of a function, it will run right away when the website loads in your browser.
-
-// This line of code is helping set up the dropdown menu to do things when you click on it.
-document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
-
-
-
-
-
-
-
-function onTextInputButtonClick() {}
-
-function onConsoleButtonClick() {
-}
-
-
-
-
+// This function will run when we click an item in the Fruits dropdown menu.
+// It makes different page elements show up or not, depending on what option we clicked.
 function onDropdownOptionClick(event) {
-  var optionId = event.target.value;
-
+  
+  // Reset the page by hiding all the fruit elements
   document.getElementById("noFruitSelected").style.display = "none";
   document.getElementById("apples").style.display = "none";
   document.getElementById("bananas").style.display = "none";
   document.getElementById("cranberries").style.display = "none";
 
+  // Find which fruit option we clicked on
+  var optionId = event.target.value;
+
+  // Un-hide the page element for the fruit option that we clicked on 
   document.getElementById(optionId).style.display = "block";
 }
+
 </script>
+
+
+</body>
 </html>
