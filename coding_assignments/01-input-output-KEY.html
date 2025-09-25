@@ -1,7 +1,9 @@
+<!-- DO NOT MODIFY THIS FILE -->
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Input and Output</title>
+<title>HTML examples</title>
 </head>
 <style>
 #apples, #bananas, #cranberries {
@@ -11,31 +13,20 @@
 <body>
 
 
-<h1>Coding Assignment #1: Input and Output</h1>
+<h1>HTML input and output types</h1>
+
+
+  <img src="john_mary_judge.jpg">
 
 <!-- Use the <button> tag to make a button. You can add the "onclick" part later if you choose Javascript for your coding project. -->
 <h2>HTML output</h2>
 <p>These buttons demonstrate different kinds of HTML output.</p>
 
-<script>
-  // Most of the time, you will put your code in a function that will get called when the user does something, like click a button.
-
-function onChangePageContentButtonClick() { 
-  document.getElementById("output").innerHTML = "ECS first period is awesome!";
-}
-</script>
 
 <button onclick="onChangePageContentButtonClick()">Change the HTML contents</button>
 
-<p id="output"></p>
+<p id="changePageContentButtonParagraph"></p>
 
-
-<script>
-
-function onAlertButtonClick() {
-  alert("hi first period!");
-}
-</script>
 <button onclick="onAlertButtonClick()">Show Alert</button>
 
 <p></p>
@@ -91,8 +82,6 @@ function onAlertButtonClick() {
 <!-- If you use Javascript code in your project, this is where it will go. -->
 <script>
 
-
-
 // If you put your javascript code outside of a function, it will run right away when the website loads in your browser.
 
 // This line of code is helping set up the dropdown menu to do things when you click on it.
@@ -101,15 +90,29 @@ document.getElementById("exampleDropdown").addEventListener("change", onDropdown
 
 
 
+// Most of the time, you will put your code in a function that will get called when the user does something, like click a button.
 
-
-
-function onTextInputButtonClick() {}
-
-function onConsoleButtonClick() {
+function onChangePageContentButtonClick() { 
+  document.getElementById("changePageContentButtonParagraph").innerHTML = "We just output some content to the HTML page itself.";
 }
 
 
+function onTextInputButtonClick() {
+    var name = document.getElementById("textInputId").value;
+
+    console.log("we clicked the text input button")
+    console.log(name)
+
+    document.getElementById("textInputButtonParagraph").innerHTML = `Hello ${name}, it is very nice to meet you!`;
+}
+
+function onConsoleButtonClick() {
+    console.log("We just output some stuff to the console! This can be very helpful sometimes.");
+}
+
+function onAlertButtonClick() {
+    alert("This is an alert popup!");
+}
 
 
 function onDropdownOptionClick(event) {
