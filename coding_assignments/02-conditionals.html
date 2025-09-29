@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input and Output</title>
+</head>
+<body>
+
+
+<h1>Coding Assignment #2: Conditionals</h1>
+
+
+<h2>Hello! Please introduce yourself so I can roast you.</h2>
+
+<label for="textInputBox">What is your name?</label>
+<input type="text" id="nameInputId" name="nameInputBox">
+<br>
+<br>
+
+<label for="ageInputBox">How old are you?</label>
+<input type="number" id="ageInputId" name="ageInputBox">
+<br>
+<br>
+
+<label for="feelingsInputBox">How are you feeling today?</label>
+<select id="feelingsDropdownId" name="feelingsInputBox">
+  <option value="I don't know">I don't know</option>
+  <option value="Good">Happy</option>
+  <option value="Sad">Sad</option>
+  <option value="Tired">Tired</option>
+</select>
+<br>
+<br>
+
+
+<button onclick="onRoastButtonClick()">Roast me</button>
+
+<p id="roastBox"></p>
+
+<br>
+<!-- #TODO: Write a list of the roasting rules that I should check for when I am grading. -->
+<h3>Custom roasts</h3>
+<ol>
+  <!-- These are examples; replace them with your own custom roasting rules -->
+  <li>If your name is "Ms Graham"</li>
+  <li>If you are feeling tired and your age is over 35</li>
+  <li>If you are feeling sad</li>
+</ol>
+
+
+<script>
+
+
+function onRoastButtonClick(elementId) {
+  var name = document.getElementById("nameInputId").value;
+  var age = document.getElementById("ageInputId").value;
+  var feelings = document.getElementById("feelingsDropdownId").value;
+
+  var roast = generateRoast(name, age, feelings);
+  writeToPage("roastBox", roast);
+
+}
+
+
+// #TODO: Edit this function to give custom roasts based on the person's name, age, and how they're feeling today.
+// You need to use all the inputs (name, age, and feelings) at least once.
+// You need to use the ! (not), && (and), or the || (or) operator at least once each.
+function generateRoast(name, age, feelings) {
+
+  var roastsWithName = [
+    `${name} is so cool that even ice cream gets jealous`,
+    `${name} is sendy`,
+    `Somebody should start a parade in ${name}'s honor`
+  ];
+
+  var genericRoasts = [
+    "You're so smart, your teacher uses your tests as an answer key",
+    "You're so helpful, you put ChatGPT out of a job",
+    "You're so nice, you apologize to your desk every time you bump into it",
+    "You're so smart, the GPS asks you for directions",
+    "You're nice. I'm going to keep you.",
+    "I'm going to add you to my shopping cart."
+  ];
+
+  if (name) {
+    return roastsWithName[Math.floor(Math.random() * roastsWithName.length)];
+  } else {
+    return genericRoasts[Math.floor(Math.random() * genericRoasts.length)];
+  }
+
+}
+
+
+/**
+ * This function adds content to the page
+ * @param elementId - the ID of the page element we want to add content to
+ * @param message - the content we want to add to the page
+ */
+function writeToPage(elementId, message) {
+  document.getElementById(elementId).innerHTML = message;
+}
+
+</script>
+
+</body>
+</html>
