@@ -4,8 +4,9 @@
 <title>Input and Output</title>
 </head>
 <style>
-#apples, #bananas, #cranberries {
-  display: none;
+section {
+  margin-top: 30px;
+  margin-bottom: 60px;
 }
 </style>
 <body>
@@ -15,6 +16,10 @@
 
 
 <h2>HTML output types</h2>
+
+
+<!-- Output #1: Alerts ------------------------->
+<section id="AlertOutputSection">
 
 <p>This button generates an alert output: </p>
 <button onclick="onAlertButtonClick()">Show Alert</button>
@@ -30,8 +35,12 @@ function onAlertButtonClick() {
 
 </script>
 
+</section>
 
-<p>This button outputs content to the HTML page:</p>
+
+<!-- Output #2: Write to HTML page ------------->
+<section id="HtmlPageOutput">
+<p>This button outputs content to an element on the HTML page:</p>
 
 <button onclick="onAddContentButtonClick()">Change the HTML page</button>
 
@@ -47,12 +56,17 @@ function onAddContentButtonClick() {
 }
 
 </script>
+</section>
 
 
-<p>This button uses the "console.log" function to print output to a special place called the developer console. 
-  We will learn how to use it as a tool to figure out why our website code isn't working how we want. </p>
+<!-- Output #3: console.log -------------------->
+<section id="ConsoleOutput">
+<p>This button outputs content to a special place called the developer console. </p>
 
 <button onclick="onConsoleButtonClick()">Output to Console</button>
+
+<p>To see console output, right-click anywhere on the webpage, select "Inspect" or "Inspect Element", and then open the "Console" tab.</p>
+
 
 <script>
 
@@ -61,8 +75,11 @@ function onConsoleButtonClick() {
 }
 
 </script>
+</section>
 
-<br><br>
+
+<!-- Textbox Input Example --------------------->
+<section>
 
 <h2>Textbox Input</h2>
 
@@ -70,7 +87,7 @@ function onConsoleButtonClick() {
 
 <label for="textInputName">What is your name?</label>
 <input type="text" id="textInputId" name="textInputName"><br>
-<p id="textInputButtonParagraph"></p>
+<p id="greetingsBox"></p>
 
 <button onclick="onTextInputButtonClick()">Submit</button>
 
@@ -80,71 +97,20 @@ function onConsoleButtonClick() {
 function onTextInputButtonClick() {
   var name = document.getElementById("textInputId").value;
 
-  writeToPage("textInputButtonParagraph", `Hello ${name}, it is very nice to meet you!`);
+  writeToPage("greetingsBox", `Hello ${name}, it is very nice to meet you!`);
 }
 
-// This function accepts two input parameters:
-// elementId is the ID of the page element we want to add content to
-// message is the text we want to put into that
+/**
+ * This function adds content to the page
+ * @param elementId - the ID of the page element we want to add content to
+ * @param message - the content we want to add to the page
+ */
 function writeToPage(elementId, message) {
   document.getElementById(elementId).innerHTML = message;
 }
 
 </script>
-
-<br><br>
-<h2>Dropdown Menu Input</h2>
-
-<select id="exampleDropdown" onclick="onDropdownOptionClick">
-  <option value="noFruitSelected">--Please choose a fruit--</option>
-  <option value="apples">Apples</option>
-  <option value="bananas">Bananas</option>
-  <option value="cranberries">Cranberries</option>
-</select>
-
-<div id="noFruitSelected">
-  <p>Select a fruit to see content here</p>
-</div>
-
-<div id="apples">
-  <p>Apples are Awesome</p>
-</div>
-
-<div id="bananas">
-  <p>Bananas are Better</p>
-</div>
-
-<div id="cranberries">
-  <p>Cranberries are Colorful</p>
-</div>
-
-<script>
-
-// This line of code is helping set up the dropdown menu to do things when you click on it.
-// It will be run whenever the website loads in your browser.
-document.getElementById("exampleDropdown").addEventListener("change", onDropdownOptionClick);
-
-
-// This function will run when we click an item in the Fruits dropdown menu.
-// It makes different page elements show up or not, depending on what option we clicked.
-function onDropdownOptionClick(event) {
-  
-  // Reset the page by hiding all the fruit elements
-  document.getElementById("noFruitSelected").style.display = "none";
-  document.getElementById("apples").style.display = "none";
-  document.getElementById("bananas").style.display = "none";
-  document.getElementById("cranberries").style.display = "none";
-
-  // Find which fruit option we clicked on
-  var optionId = event.target.value;
-
-  // Un-hide the page element for the fruit option that we clicked on 
-  document.getElementById(optionId).style.display = "block";
-}
-
-</script>
-
-
+</section>
 
 </body>
 </html>
