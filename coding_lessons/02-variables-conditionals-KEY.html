@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Variables and Conditionals</title>
+</head>
+<body>
+
+
+<h1>Coding Assignment #2: Variables and Conditionals</h1>
+
+
+<p id="pokeButton">Poke the bear. <button onclick="pokeBear()">poke</button></p>
+
+
+<p id="pokeMessage"></p>
+
+<p id="warningMessage"></p>
+
+<p id="apologizeButton" style="display: none">
+  <button onclick="apologizeToBear()">apologize to bear</button>
+</p>
+
+<img id="bearImage" src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="300">
+
+
+<script>
+
+var pokeCounter = 0;
+
+function pokeBear() {
+  pokeCounter = pokeCounter + 1;
+
+  document.getElementById("apologizeButton").style="display: block";
+
+  if (pokeCounter == 1) {
+    writeToPage("pokeMessage", "You have poked the bear 1 time.");
+  } else {
+    writeToPage("pokeMessage", `You have poked the bear ${pokeCounter} times.`);
+  }
+
+  if (pokeCounter >= 5) {
+    makeBearSad();
+  }
+
+  if (pokeCounter >= 10) {
+    makeBearAngry();
+  }
+
+  if (pokeCounter >= 15) {
+    bearEatsYou();
+  }
+}
+
+function apologizeToBear() {
+  pokeCounter = 0;
+  writeToPage("pokeMessage", "The bear accepts your apology.  All pokes are forgiven.");
+
+  document.getElementById("apologizeButton").style="display: none";
+  
+  writeToPage("warningMessage", null)
+  document.getElementById("bearImage").src = "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+}
+
+function makeBearSad() {
+    writeToPage("warningMessage", "The bear is sad that you are poking him and wants you to go away.");
+    document.getElementById("bearImage").src = "https://media.istockphoto.com/id/1294163668/photo/polar-white-bear-gets-shy-by-hiding-his-face-with-a-paw.jpg?s=1024x1024&w=is&k=20&c=M-W3ro5qJJRzeDt_KK_UsiknMYvbJ6jNq0bD00HxpQM=";
+}
+
+function makeBearAngry() {
+  writeToPage("warningMessage", "The bear is getting pretty upset now, you should probably leave him alone.");
+  document.getElementById("bearImage").src = "https://media.istockphoto.com/id/1175335339/photo/angry-polar-bear.jpg?s=1024x1024&w=is&k=20&c=eRS9u4HWPT4ZqKaddRyuEOU26Lq8ZAltHEUwoFHFfUY=";
+}
+
+function bearEatsYou() {
+  writeToPage("pokeMessage", "You cannot poke the bear anymore because he has eaten you.");
+  document.getElementById("pokeButton").style = "display: none";
+  document.getElementById("apologizeButton").style="display: none";
+  writeToPage("warningMessage", "The bear feels happy again because he is no longer being poked.");
+  document.getElementById("bearImage").src = "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+}
+
+/**
+ * This function adds content to the page
+ * @param elementId - the ID of the page element we want to add content to
+ * @param message - the content we want to add to the page
+ */
+function writeToPage(elementId, message) {
+  document.getElementById(elementId).innerHTML = message;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input and Output</title>
+</head>
+<body>
+
+
+<h1>Coding Assignment #3: Loops</h1>
+
+<button onclick="quizMe()">Quiz Me</button>
+
+
+<script>
+
+function quizMe() {
+  askQuestion("What is 2+2?", 4);
+}
+
+function askQuestion(questionText, questionAnswer) {
+  var answer = prompt(questionText);
+
+  if (answer == questionAnswer) {
+    alert("correct!")
+  } else {
+    alert("wrong answer!")
+  }
+  
+}
+
+/**
+ * This function adds content to the page
+ * @param elementId - the ID of the page element we want to add content to
+ * @param message - the content we want to add to the page
+ */
+function writeToPage(elementId, message) {
+  document.getElementById(elementId).innerHTML = message;
+}
+
+</script>
+
+</body>
+</html>
