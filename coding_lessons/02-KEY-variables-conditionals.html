@@ -49,9 +49,22 @@ function pokeBear() {
   if (pokeCounter >= 15) {
     bearEatsYou();
   }
+
 }
 
+
 function apologizeToBear() {
+  // var name = prompt("I will forgive you ONLY if you can guess my name correctly!");
+
+  if (name == "Beary" || pokeCounter <= 13) {
+    bearForgivesYou();
+  } else {
+    bearEatsYou();
+  }
+
+}
+
+function bearForgivesYou() {
   pokeCounter = 0;
   writeToPage("pokeMessage", "The bear accepts your apology.  All pokes are forgiven.");
 

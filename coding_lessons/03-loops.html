@@ -14,18 +14,18 @@
 <script>
 
 function quizMe() {
-  var a = 2;
-  var b = 2;
-  askQuestion(`What is ${a} + ${b}?`, a + b);
+  var x = 2;
+
+  askQuestion(`What is ${x} + ${x}?`, x + x);
 }
 
 function askQuestion(questionText, questionAnswer) {
   var answer = prompt(questionText);
 
   if (answer == questionAnswer) {
-    alert("correct!")
+    alert("Correct!")
   } else {
-    alert("wrong answer!")
+    alert(`Wrong! The correct answer was ${questionAnswer}.`)
   }
   
 }

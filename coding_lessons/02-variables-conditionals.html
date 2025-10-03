@@ -11,7 +11,6 @@
 
 <p id="pokeButton">Poke the bear. <button onclick="pokeBear()">poke</button></p>
 
-
 <p id="pokeMessage"></p>
 
 <p id="warningMessage"></p>
@@ -32,6 +31,8 @@ function pokeBear() {
 
   document.getElementById("apologizeButton").style="display: block";
   writeToPage("pokeMessage", `You have poked the bear ${pokeCounter} time(s).`);
+  
+
 }
 
 
@@ -58,7 +59,7 @@ function makeBearAngry() {
 function bearEatsYou() {
   writeToPage("pokeMessage", "You cannot poke the bear anymore because he has eaten you.");
   document.getElementById("pokeButton").style = "display: none";
-  document.getElementById("apologizeButton").style="display: none";
+  document.getElementById("apologizeButton").style = "display: none";
   writeToPage("warningMessage", "The bear feels happy again because he is no longer being poked.");
   document.getElementById("bearImage").src = "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 }
