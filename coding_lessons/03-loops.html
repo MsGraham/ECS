@@ -14,9 +14,9 @@
 <script>
 
 function quizMe() {
-  var x = 2;
 
-  askQuestion(`What is ${x} + ${x}?`, x + x);
+  askQuestion("what is 2 + 2?", 4);
+
 }
 
 function askQuestion(questionText, questionAnswer) {
@@ -25,7 +25,7 @@ function askQuestion(questionText, questionAnswer) {
   if (answer == questionAnswer) {
     alert("Correct!")
   } else {
-    alert(`Wrong! The correct answer was ${questionAnswer}.`)
+    alert("Wrong answer, please try again.");
   }
   
 }
