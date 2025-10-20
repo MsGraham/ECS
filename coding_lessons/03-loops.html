@@ -19,10 +19,10 @@ function quizMe() {
 
 }
 
-function askQuestion(questionText, questionAnswer) {
+function askQuestion(questionText, correctAnswer) {
   var answer = prompt(questionText);
 
-  if (answer == questionAnswer) {
+  if (answer == correctAnswer) {
     alert("Correct!")
   } else {
     alert("Wrong answer, please try again.");
